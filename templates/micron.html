@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deloitte Job Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f8ff; /* Light blue background */
+        background-image: url("../static/img/back.jpg");
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+      .details {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        color: #333;
+      }
+      .rounds-table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .rounds-table th,
+      .rounds-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      .rounds-table th {
+        background-color: #f2f2f2;
+      }
+      select {
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .questions {
+        margin-top: 20px;
+      }
+      .questions p {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .questions ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      .questions ul li {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="details">
+        <h2>Company Description</h2>
+        <p>
+          Deloitte is a global professional services firm that provides audit,
+          consulting, financial advisory, risk management, and tax services.
+          With a presence in over 150 countries, Deloitte serves clients across
+          various industries, helping them achieve their business goals through
+          innovative solutions and strategic insights.
+        </p>
+      </div>
+
+      <div class="details">
+        <h2>Job Designations and Packages</h2>
+        <table class="rounds-table">
+          <tr>
+            <th>S.No</th>
+            <th>Designation</th>
+            <th>Package (in lakhs)</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Full Stack Developer</td>
+            <td>12.00</td>
+          </tr>
+        </table>
+      </div>
+      <div class="details">
+        <h2>Interview Rounds</h2>
+        <table class="rounds-table">
+          <tr>
+            <th>S.No</th>
+            <th>Round Name</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Online Assessment</td>
+            <td>01-10-2023</td>
+            <td>Aptitude and Logical Reasoning Test</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Group Discussion</td>
+            <td>05-10-2023</td>
+            <td>Discussion on a Current Affairs Topic</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Technical Interview</td>
+            <td>10-10-2023</td>
+            <td>Technical Skill Assessment</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>HR Interview</td>
+            <td>15-10-2023</td>
+            <td>Behavioral and Fitment Interview</td>
+          </tr>
+        </table>
+      </div>
+
+      <label for="year">Select Year:</label>
+      <select id="year" onchange="loadQuestions()">
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+      <div class="details">
+        <h2>Interview Questions</h2>
+        <div id="questions-container">
+          <!-- Questions will be dynamically loaded here based on the selected year -->
+        </div>
+      </div>
+
+      <script>
+        function loadQuestions() {
+          var year = document.getElementById("year").value;
+          var questionsContainer = document.getElementById(
+            "questions-container"
+          );
+          questionsContainer.innerHTML = ""; // Clear previous questions
+
+          if (year === "2022") {
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>Technical Interview Questions:</p><ul><li>What are the primary differences between a linked list and an array?</li><li>Explain the concept of polymorphism in object-oriented programming.</li><li>How would you optimize a SQL query that is running slow?</li><li>Describe a situation where you had to debug a complex issue in a production environment.</li><li>What are the key considerations when designing a distributed system?</li><li>Explain the process of normalization in database design.</li><li>How do you ensure the security of an application during development?</li></ul></div>";
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>HR Interview Questions:</p><ul><li>Tell us about yourself and why you want to work at Deloitte.</li><li>Describe a challenging project you worked on and how you overcame the challenges.</li><li>How do you handle stress and tight deadlines?</li><li>What are your long-term career goals and how does Deloitte fit into them?</li><li>Give an example of a time when you worked as part of a team.</li></ul></div>";
+          } else if (year === "2023") {
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>Technical Interview Questions:</p><ul><li>Discuss the advantages and disadvantages of using microservices architecture.</li><li>How would you approach designing a scalable web application?</li><li>Explain the concept of dependency injection and its benefits.</li><li>What are some common performance bottlenecks in web applications and how would you address them?</li><li>Describe the process of continuous integration and continuous deployment (CI/CD).</li><li>How do you handle version control in a team environment?</li><li>What are the key differences between REST and GraphQL?</li></ul></div>";
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>HR Interview Questions:</p><ul><li>Why did you choose Deloitte over other consulting firms?</li><li>Describe a situation where you demonstrated leadership skills.</li><li>How do you stay motivated and productive in your work?</li><li>What are your strengths and weaknesses?</li><li>Discuss a time when you had to adapt to a significant change at work.</li></ul></div>";
+          }
+        }
+        // Load questions for the initial selection
+        loadQuestions();
+      </script>
+    </div>
+  </body>
+</html>

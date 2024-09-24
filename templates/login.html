@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Career Portal - Sign In</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+        background: #000;
+        overflow: hidden;
+      }
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      #background-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+      }
+      .container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 50px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        max-width: 400px;
+        width: 90%;
+        position: relative;
+        z-index: 1;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+      .logo h1 {
+        font-size: 2em;
+        color: darkblue;
+        margin: 0;
+      }
+      h2 {
+        margin-bottom: 40px;
+        font-size: 2em;
+        color: #333;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        text-align: left;
+        font-size: 1rem;
+      }
+      input[type="email"],
+      input[type="password"] {
+        display: block;
+        width: calc(100% - 2rem);
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #54afe4;
+        color: white;
+        border: none;
+        padding: 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s, transform 0.3s;
+      }
+      input[type="submit"]:hover {
+        background-color: #3a8bb3;
+        transform: translateY(-5px);
+      }
+      .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        margin-bottom: 15px;
+      }
+      .alert.success {
+        background-color: #4caf50;
+      }
+      .alert.info {
+        background-color: #2196f3;
+      }
+      .alert.warning {
+        background-color: #ff9800;
+      }
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .closebtn:hover {
+        color: black;
+      }
+      .g-recaptcha {
+        margin-bottom: 1.5rem;
+      }
+      p {
+        margin-top: 1rem;
+      }
+      a {
+        color: #54afe4;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      function closeAlert(element) {
+        element.parentElement.style.display = "none";
+      }
+
+      function enableSubmit() {
+        const recaptchaResponse = document.getElementById(
+          "g-recaptcha-response"
+        ).value;
+        const submitButton = document.getElementById("submit");
+        submitButton.disabled = !recaptchaResponse;
+      }
+
+      function onRecaptchaSuccess() {
+        document.getElementById("submit").disabled = false;
+      }
+
+      function onRecaptchaExpired() {
+        document.getElementById("submit").disabled = true;
+      }
+    </script>
+</head>
+<body>
+   <div class="video-background">
+      <video autoplay muted loop id="background-video">
+          <source src="../static/img/back.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+    <div class="container">
+      <div class="logo">
+        <img src="../static/img/logo.jpg" alt="CareerIntel Logo">
+        <h1>CareerIntel</h1>
+      </div>
+      <h2>Sign In</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+      <div>
+        {% for category, message in messages %}
+        <div class="alert {{ category }}">
+          <span class="closebtn" onclick="closeAlert(this)">&times;</span>
+          {{ message }}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+      <form
+        action="{{ url_for('login') }}"
+        method="POST"
+        onsubmit="return enableSubmit();"
+      >
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <div
+          class="g-recaptcha"
+          data-sitekey="6LdN3-4pAAAAAAKZt4FN4CtVGwCcJJ9zX5KQQJS1"
+          data-callback="onRecaptchaSuccess"
+          data-expired-callback="onRecaptchaExpired"
+        ></div>
+        <input type="submit" id="submit" value="Sign In" disabled />
+      </form>
+      <p>
+        Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a>
+      </p>
+    </div>
+  </body>
+</html>

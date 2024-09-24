@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Logos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        transition: background-color 0.3s ease;
+        background-image: url(../static/img/back2.jpg);
+        background-size: cover;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .company {
+        width: 200px;
+        margin: 20px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        background: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .company:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .company img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .company p {
+        margin-top: 10px;
+        font-weight: normal;
+        transition: font-weight 0.3s ease;
+      }
+      .company:hover p {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="company" onclick="window.location.href='ibm.html'">
+        <img src="../static/img/ibm.jpg" alt="IBM Logo" />
+        <p>IBM</p>
+      </div>
+      <div class="company" onclick="window.location.href='deloitte.html'">
+        <img src="../static/img/deloitte.jpeg" alt="Deloitte Logo" />
+        <p>Deloitte</p>
+      </div>
+      <div class="company" onclick="window.location.href='accenture.html'">
+        <img src="../static/img/acc.webp" alt="Accenture Logo" />
+        <p>Accenture</p>
+      </div>
+      <div class="company" onclick="window.location.href='tata_elxsi.html'">
+        <img src="../static/img/tata.png" alt="Tata Elxsi Logo" />
+        <p>Tata Elxsi</p>
+      </div>
+      <div class="company" onclick="window.location.href='synchronyp3.html'">
+        <img src="../static/img/sync.jpg" alt="SynchronyP3 Logo" />
+        <p>Synchrony</p>
+      </div>
+      <div class="company" onclick="window.location.href='micron.html'">
+        <img src="../static/img/micron.png" alt="Micron Logo" />
+        <p>Micron</p>
+      </div>
+      <div class="company" onclick="window.location.href='pwc.html'">
+        <img src="../static/img/pwc.jpg" alt="PwC Logo" />
+        <p>PwC</p>
+      </div>
+      <div class="company" onclick="window.location.href='salesforce.html'">
+        <img src="../static/img/salesforce.jpeg" alt="Salesforce Logo" />
+        <p>Salesforce</p>
+      </div>
+      <!-- Add more companies here -->
+    </div>
+  </body>
+</html>

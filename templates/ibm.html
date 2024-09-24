@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IBM Job Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f8ff; /* Light blue background */
+        background-image: url("../static/img/back.jpg");
+        background-size: cover;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        background-color: transparent;
+        background: (255, 255, 255, 0.9);
+      }
+      .details {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        color: #333;
+      }
+      .rounds-table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .rounds-table th,
+      .rounds-table td {
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        padding: 8px;
+        text-align: left;
+      }
+      .rounds-table th {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+      select {
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .questions {
+        margin-top: 20px;
+      }
+      .questions p {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .questions ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      .questions ul li {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="details">
+        <h2>Company Description</h2>
+        <p>
+          IBM is a 112-year-old company with a young heart. We strive to
+          reinvent ourselves and the world. Our employees inspire to change the
+          world through technology. At IBM India, we provide solutions and
+          services to all major industries including financial services,
+          healthcare, Government, automotive, telecommunications and education.
+          As a trusted partner with wide-ranging service capabilities, we help
+          our partners transform and succeed with meaningful circumstances. The
+          diversity and breadth of the entire IBM portfolio of research,
+          consulting, solutions, services, systems, and software, distinguishes
+          IBM India from other companies in the industry. IBM Consulting is the
+          division of IBM that is focused on business process consulting and
+          technology application. At Consulting, we provide end-to-end solution
+          to our clients. We take pride at providing complex integration and
+          business transformation solutions to our partners. IBM Consulting in
+          India, also known as Consulting - Global Delivery caters to clients
+          worldwide. Our portfolio includes services on Digital Transformation
+          (e.g., Strategy, Interactive Experience, Analytic and Big Data),
+          Application Innovation Consulting and Enterprise Applicants (e.g.,
+          SAP, Oracle, Microsoft, and Workday).
+        </p>
+      </div>
+
+      <div class="details">
+        <h2>Job Designations and Packages</h2>
+        <table class="rounds-table">
+          <tr>
+            <th>S.No</th>
+            <th>Designation</th>
+            <th>Package (in lakhs)</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Associate System Engineer</td>
+            <td>4.50</td>
+          </tr>
+        </table>
+      </div>
+      <div class="details">
+        <h2>Interview Rounds</h2>
+        <table class="rounds-table">
+          <tr>
+            <th>S.No</th>
+            <th>Round Name</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Online Assessment 1(OL_1)</td>
+            <td>14-09-2023</td>
+            <td>Coding Assessment (Physical Event/Offline)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Online Assessment 2(OL_2)</td>
+            <td>14-09-2023</td>
+            <td>English Language Assessment -(Physical Event/Offline)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Group Discussion 1(GD_1)</td>
+            <td>14-09-2023</td>
+            <td>Group Discussion</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Technical Interview 1(TI_1)</td>
+            <td>15-09-2023</td>
+            <td>Interviews</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Final Interview(FI)</td>
+            <td>19-09-2023</td>
+            <td>Final Offer</td>
+          </tr>
+        </table>
+      </div>
+
+      <label for="year">Select Year:</label>
+      <select id="year" onchange="loadQuestions()">
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+      <div class="details">
+        <h2>Interview Questions</h2>
+        <div id="questions-container">
+          <!-- Questions will be dynamically loaded here based on the selected year -->
+        </div>
+      </div>
+
+      <script>
+        function loadQuestions() {
+          var year = document.getElementById("year").value;
+          var questionsContainer = document.getElementById(
+            "questions-container"
+          );
+          questionsContainer.innerHTML = ""; // Clear previous questions
+
+          if (year === "2022") {
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>Technical Interview 1 (TI_1) Questions:</p><ul><li>Why did you choose to pursue a career in software engineering?</li><li>Describe a time when you had to overcome a significant technical challenge.</li><li>How do you stay updated with the latest technologies and industry trends?</li><li>Discuss a project where you had to work closely with a team. What was your role, and how did you contribute?</li><li>Describe a situation where you had to quickly learn a new programming language or technology.</li><li>How do you handle disagreements or conflicts within a team environment?</li><li>Discuss a situation where you had to prioritize tasks to meet a tight deadline.</li><li>What do you consider your greatest technical achievement, and why?</li><li>How do you approach debugging and troubleshooting complex issues?</li><li>Describe a time when you had to explain a technical concept to a non-technical audience.</li><li>What are your long-term career goals, and how do you plan to achieve them?</li><li>Discuss a time when you had to adapt to changes in project requirements or priorities.</li><li>How do you handle stress and pressure in a professional environment?</li><li>Describe your experience working on projects with tight budgets or resource constraints.</li><li>What do you hope to accomplish in your first year at IBM?</li></ul></div>";
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>Final Interview (FI) Questions:</p><ul><li>Discuss a project where you successfully implemented innovative solutions to address complex problems.</li><li>How do you approach mentoring or coaching junior members of a team?</li><li>Describe a situation where you had to lead a team through a challenging project. What strategies did you use to keep the team motivated and focused?</li><li>How do you prioritize tasks when faced with multiple competing deadlines?</li><li>Discuss a time when you had to advocate for a technical solution or approach to stakeholders or clients.</li><li>What do you consider your biggest professional strength, and how does it contribute to your success as a software engineer?</li><li>Describe a situation where you had to take initiative to improve a process or workflow.</li><li>How do you ensure that your technical skills stay relevant and up-to-date?</li><li>Discuss a project where you successfully collaborated with cross-functional teams to achieve a common goal.</li><li>Describe a time when you had to make a difficult decision that impacted a project or team. How did you approach the decision-making process?</li><li>What do you enjoy most about working in software development, and how does it align with your career aspirations?</li><li>Discuss a time when you had to resolve a conflict or disagreement between team members. What was the outcome, and what did you learn from the experience?</li><li>How do you handle feedback and constructive criticism from peers or supervisors?</li><li>Describe a situation where you had to adapt to changes in project requirements or technology stack midway through a project.</li><li>What do you hope to achieve in your career in the next 5-10 years, and how does IBM fit into your long-term goals?</li></ul></div>";
+          } else if (year === "2023") {
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>Technical Interview 1 (TI_1) Questions:</p><ul><li>Discuss the benefits and drawbacks of using a NoSQL database compared to a relational database.</li><li>Describe the concept of micro-frontends and its advantages in web development.</li><li>Explain the difference between stateful and stateless components in React.</li><li>Discuss the role of GraphQL in modern API development.</li><li>Describe the principles of domain-driven design (DDD) and its benefits.</li><li>Explain the concept of distributed systems and the challenges they pose.</li><li>Discuss the principles of clean code and why they are important.</li><li>Describe the concept of event-driven architecture (EDA) and its use cases.</li><li>Explain the difference between horizontal and vertical scaling in cloud computing.</li><li>Discuss the advantages and disadvantages of using container orchestration platforms like Kubernetes.</li><li>Describe the role of machine learning in software development.</li><li>Explain the concept of design thinking and its application in product development.</li><li>Discuss the principles of reactive programming and its benefits.</li><li>Describe the difference between serverless and traditional server-based architectures.</li><li>Explain the concept of eventual consistency in distributed systems.</li></ul></div>";
+            questionsContainer.innerHTML +=
+              "<div class='questions'><p>Final Interview (FI) Questions:</p><ul><li>Discuss a project where you successfully implemented innovative solutions to address complex problems.</li><li>How do you approach mentoring or coaching junior members of a team?</li><li>Describe a situation where you had to lead a team through a challenging project. What strategies did you use to keep the team motivated and focused?</li><li>How do you prioritize tasks when faced with multiple competing deadlines?</li><li>Discuss a time when you had to advocate for a technical solution or approach to stakeholders or clients.</li><li>What do you consider your biggest professional strength, and how does it contribute to your success as a software engineer?</li><li>Describe a situation where you had to take initiative to improve a process or workflow.</li><li>How do you ensure that your technical skills stay relevant and up-to-date?</li><li>Discuss a project where you successfully collaborated with cross-functional teams to achieve a common goal.</li><li>Describe a time when you had to make a difficult decision that impacted a project or team. How did you approach the decision-making process?</li><li>What do you enjoy most about working in software development, and how does it align with your career aspirations?</li><li>Discuss a time when you had to resolve a conflict or disagreement between team members. What was the outcome, and what did you learn from the experience?</li><li>How do you handle feedback and constructive criticism from peers or supervisors?</li><li>Describe a situation where you had to adapt to changes in project requirements or technology stack midway through a project.</li><li>What do you hope to achieve in your career in the next 5-10 years, and how does IBM fit into your long-term goals?</li></ul></div>";
+          }
+        }
+        // Load questions for the initial selection
+        loadQuestions();
+      </script>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
+    />
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      project-id="career-intel"
+      agent-id="03136026-2672-40db-a8df-fc04bb15ea0e"
+      language-code="en"
+      max-query-length="-1"
+    >
+      <df-messenger-chat-bubble chat-title="Synthia 🤖">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+    <style>
+      df-messenger {
+        z-index: 999;
+        position: fixed;
+        --df-messenger-font-color: #000;
+        --df-messenger-font-family: Google Sans;
+        --df-messenger-chat-background: #e7effe;
+        --df-messenger-message-user-background: #d3e3fd;
+        --df-messenger-message-bot-background: #fff;
+        bottom: 16px;
+        right: 16px;
+      }
+    </style>
+  </body>
+</html>
